@@ -6,6 +6,6 @@ Had a page separated to the past events, where I want to put the upcoming as wel
 There's also a page for the contacts (still made up except addres)
 And finally a 'about us' page explaining about the idea behind the creation of the space
 
-Up until this date (04/05/2026) I have only used HTML, CSS and JavaScript to create said pages. 
+Up until this date (04/05/2026) I have only used HTML5, CSS3, Bootstrap5, Google Fonts and JavaScript to create said pages. 
 With currently knowledge I do believe the website is rather pretty but I recon is really simple to some standards (even my own)
 Futurely I would like to develope more (as said before) the events page, create a menu even though the bar's menu is seasonal
