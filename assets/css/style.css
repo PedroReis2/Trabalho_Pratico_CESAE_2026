@@ -1,4 +1,10 @@
-body{
+main {
+    flex: 1;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     font-family: Helvetica, sans-serif;
     font-size: medium;
 }
@@ -17,6 +23,7 @@ body.home::before {
     left: 0;
     width: 100%;
     height: 100%;
+    filter: blur(2px);
 
     background-image: url("../img/bg-image.JPG");
     background-size: cover;
@@ -43,12 +50,41 @@ body.home::after {
 
 /* NAVBAR TRANSPARENTE */
 .fundo-transparente {
-    background-color: rgba(255, 255, 255, 0);
+    background-color: rgba(255, 0, 0, 0);
+}
+
+.navbar {
+    position: relative;
+}
+
+.navbar-collapse {
+    position: absolute;
+    top: 100%;
+    left: 0;
+
+    width: 240px;
+
+    backdrop-filter: blur(12px);
+
+    border-radius: 16px;
+    padding: 15px;
+
+    z-index: 9999;
+}
+
+.navbar-collapse.collapse {
+    position: absolute;
+}
+
+
+.navbar-nav {
+    padding: 0;
+    margin: 0;
 }
 
 /* o "card" do menu */
 .navbar-collapse ul {
-     background: rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255,255, 0);
     backdrop-filter: blur(10px);
 
     padding: 20px 25px;   /* ↓ menos espaço */
@@ -67,6 +103,38 @@ body.home::after {
 .navbar-collapse .nav-link:hover {
     opacity: 0.7;
 }
+.hero {
+    height: 100vh;
+    background: url("../img/home.jpg") center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* overlay escuro */
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+}
+
+/* CARD */
+.hero-card {
+    position: relative;
+    z-index: 2;
+
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+
+    padding: 40px;
+    border-radius: 20px;
+
+    text-align: center;
+    color: white;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
 
 /******************************* SOBRE NÓS *******************************/
 
@@ -84,8 +152,9 @@ body.sobre-nos::before {
     left: 0;
     width: 100%;
     height: 100%;
+    filter: blur(2px);
 
-    background-image: url("../img/bg-sobre-nos.JPG"); /* imagem de fundo pagina sobre nós */
+    background-image: url("../img/bg-sobre-nos.JPG");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -103,7 +172,7 @@ body.sobre-nos::after {
     width: 100%;
     height: 100%;
 
-    background-color: rgba(0, 0, 0, 0.3); /* ou branco, como preferir */
+    background-color: rgba(0, 0, 0, 0.3);
     z-index: -1;
 }
 
@@ -135,7 +204,7 @@ body.sobre-nos::after {
 }
 
 
-/******************************* CONTATOS */
+/******************************* CONTATOS *******************************/
 body.contatos {
     min-height: 100vh;
     position: relative;
@@ -150,8 +219,9 @@ body.contatos::before {
     left: 0;
     width: 100%;
     height: 100%;
+    filter: blur(2px);
 
-    background-image: url("../img/bg-contatos.jpg"); /* imagem de fundo pagina contatos */
+    background-image: url("../img/bg-contatos.jpg"); 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -188,4 +258,198 @@ body.contatos::after {
     height: 580px;
     border: 0;
     border-radius: 100px;
+}
+
+/******************************* EVENTOS *******************************/
+body.eventos {
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* fundo */
+body.eventos::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    filter: blur(2px);
+
+    background-image: url("../img/bg-eventos.jpg"); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    z-index: -2;
+}
+
+/* overlay */
+body.eventos::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(0, 0, 0, 0.3); 
+    z-index: -1;
+}
+.event-carousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  perspective: 1200px;
+  height: 450px;
+}
+
+/* estrutura base */
+.event-card {
+  width: 280px;
+  transition: all 0.5s ease;
+  position: relative;
+  cursor: pointer;
+}
+
+/* card interno */
+.card {
+  border-radius: 15px;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+/* imagens normais */
+.card img {
+  height: 300px;
+  object-fit: cover;
+}
+
+/* 🔥 centro (em destaque) */
+.center {
+  transform: scale(1.2) translateZ(80px);
+  z-index: 3;
+}
+
+/* esquerda */
+.left {
+  transform: scale(0.9) translateX(-60px) rotateY(15deg);
+  opacity: 0.7;
+  z-index: 1;
+}
+
+/* direita */
+.right {
+  transform: scale(0.9) translateX(60px) rotateY(-15deg);
+  opacity: 0.7;
+  z-index: 1;
+}
+
+/* hover geral */
+.event-card:hover {
+  transform: scale(1.25);
+  z-index: 5;
+}
+
+/******************************* RESERVE *******************************/
+/* fundo reservas */
+body.reservas {
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* imagem de fundo */
+body.reservas::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background-image: url("../img/bg-reserve.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    filter: blur(2px); /* 🔥 blur igual ao home */
+    z-index: -2;
+}
+
+/* película (overlay) */
+body.reservas::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(0, 0, 0, 0.35); /* escurece + dá contraste */
+    z-index: -1;
+}
+.form-label.required::after {
+    content: " *";
+    color: red;
+    font-weight: bold;
+}
+
+/******************************* FOOTER *******************************/
+.site-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 18px 40px;
+
+    /* 🍷 efeito papel manteiga */
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+    color: white;
+
+    position: relative;
+    z-index: 10;
+}
+
+/* links */
+.footer-link {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    transition: 0.3s;
+}
+
+.footer-link:hover {
+    opacity: 0.7;
+}
+
+/* ícone Instagram */
+.site-footer i {
+    font-size: 18px;
+}
+
+/* hover mais premium */
+.footer-link:hover i {
+    transform: scale(1.15);
+    transition: 0.3s;
+}
+
+/* responsivo */
+@media (max-width: 600px) {
+    .site-footer {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
 }
