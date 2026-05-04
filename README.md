@@ -9,3 +9,6 @@ And finally a 'about us' page explaining about the idea behind the creation of t
 Up until this date (04/05/2026) I have only used HTML5, CSS3, Bootstrap5, Google Fonts and JavaScript to create said pages. 
 With currently knowledge I do believe the website is rather pretty but I recon is really simple to some standards (even my own)
 Futurely I would like to develope more (as said before) the events page, create a menu even though the bar's menu is seasonal
+
+
+https://github.com/PedroReis2/Trabalho_Pratico_CESAE_2026.git
